@@ -18,41 +18,41 @@ const GameListScreen = ({navigation}) => {
     
         return () => clearTimeout(timerId);
     }, [])
-}
 
-const renderGameCard = ({ item }) => {
+
+    const renderGameCard = ({ item }) => {
+        return (
+            <TouchableOpacity
+                style = {styles.card}
+                onPress={() => navigation.navigate('GameDetail', {gameDetails:item})}
+            >
+                <Text style= {styles.emojiContainer}>{item.emoji}</Text>
+
+                <View style = {styles.infoContainer}>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style= {styles.details}>
+                        {item.platform} * {item.genre}
+                    </Text>
+                </View>
+            </TouchableOpacity>
+        )
+    }
     return (
-        <TouchableOpacity
-            style = {styles.card}
-            onPress={() => navigation.navigate('GameDetail', {gameDetails:item})}
-        >
-            <Text style= {styles.emojiContainer}>{item.emoji}</Text>
-
-            <View style = {styles.infoContainer}>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style= {styles.details}>
-                    {item.platform} * {item.genre}
-                </Text>
-            </View>
-        </TouchableOpacity>
+        <SafeAreaView style={styles.safeArea}>
+            {isLoading ? (
+                <View style= {styles.loadContainer}>
+                    <ActivityIndicator size = "large" color='#ed4b4b'/>
+                    <Text style={styles.loadingText}>Cargando catalogo ...</Text>
+                </View>
+            ) : (
+                <FlatList 
+                    data = {games}
+                    keyExtractor={(item) => item.id}
+                    renderItem={renderGameCard}
+                    contentContainerStyle = {styles.listContainer}
+                />
+            )}
+        </SafeAreaView>  
     )
 }
-return (
-    <SafeAreaView style={styles.safeArea}>
-        {isLoading ? (
-            <View style= {styles.loadContainer}>
-                <ActivityIndicator size = "large" color='#ed4b4b'/>
-                <Text style={styles.loadingText}>Cargando catalogo ...</Text>
-            </View>
-        ) : (
-            <FlatList 
-                data = {games}
-                keyExtractor={(item) => item.id}
-                renderItem={renderGameCard}
-                contentContainerStyle = {styles.listContainer}
-            />
-        )}
-    </SafeAreaView>
-    
-)
 export default GameListScreen

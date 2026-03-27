@@ -1,6 +1,6 @@
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, {useState,useEffect} from "react";
 import {View, Text, TouchableOpacity} from 'react-native'
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import GAMING_NEWS from '../Data/gamingNewsData'; 
 import styles from '../Styles/GamingNewsStyles';
@@ -25,7 +25,7 @@ const GamingNewsScreens = () => {
         <SafeAreaView style = {styles.safeArea}>
             <View style = {styles.card}>
                 <Text style = {styles.indicatorText}>Noticia {currentIndex + 1} de {news.length}</Text>
-                <Text style = {styles.newsTitle}>{currentNewsItem.tittle}</Text>
+                <Text style = {styles.newsTitle}>{currentNewsItem.title}</Text>
                 <Text style = {styles.newsSummary}>{currentNewsItem.summary}</Text>
             </View>
             <TouchableOpacity
