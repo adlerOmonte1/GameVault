@@ -3,7 +3,7 @@ import { View, Text,TextInput, TouchableOpacity, Alert, ScrollView, KeyboardAvoi
 import { SafeAreaView} from 'react-native-safe-area-context';
 
 // import local files
-import styles from '../Styles/GameDetailStyles';
+import styles from '../Styles/AddGamesStyles';
 
 const AddGamesScreen = () => {
 
@@ -70,24 +70,28 @@ const AddGamesScreen = () => {
                 style = {styles.keyboardAvoidingView}
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             >
-                <ScrollView contentContainerStyle = {styles.scrollContainer}>
+                <ScrollView
+                  style={{ flex: 1 }}
+                  contentContainerStyle = {styles.scrollContainer}>
                 
                     {/* TITLE */}
                     <View>
                         <Text style = {styles.label}>Título</Text>
                         <TextInput
                             style = {styles.input}
-                            placeholder = "Ingrese el título del juego"
+                            placeholder = "Ej. The Legend of Zelda"
+                            placeholderTextColor="#7e7e7e"
                             value = {title}
                             onChangeText = {setTitle}
                         />
                     </View>
                     {/* PLATFORM */}
-                    <View>
+                    <View style = {styles.inputGroup}>
                         <Text style = {styles.label}>Plataforma</Text>
                         <TextInput
                             style = {styles.input}
-                            placeholder = "Ingrese la plataforma del juego"
+                            placeholder = "Ej. Nintendo Switch"
+                            placeholderTextColor="#7e7e7e"
                             value = {platform}
                             onChangeText = {setPlatform}
                         />
@@ -97,7 +101,8 @@ const AddGamesScreen = () => {
                         <Text style = {styles.label}>Género</Text>
                         <TextInput
                             style = {styles.input}
-                            placeholder = "Ingrese el género del juego"
+                            placeholder = "Ej. Acción"
+                            placeholderTextColor="#7e7e7e"
                             value = {genre}
                             onChangeText = {setGenre}
                         />
@@ -107,28 +112,31 @@ const AddGamesScreen = () => {
                         <Text style = {styles.label}>Clasificación</Text>
                         <TextInput
                             style = {styles.input}
-                            placeholder = "Ingrese la clasificación del juego"
+                            placeholder = "Ej. T"
+                            placeholderTextColor="#7e7e7e"
                             value = {ageRating}
                             onChangeText = {setAgeRating}
                         />
                     </View>
                     {/* PRICE */}
-                    <View>
+                    <View style = {styles.inputGroup}>
                         <Text style = {styles.label}>Precio</Text>
                         <TextInput
                             style = {styles.input}
-                            placeholder = "Ingrese el precio del juego"
+                            placeholder = "Ej. 59.99"
+                            placeholderTextColor="#7e7e7e"
                             value = {price}
                             onChangeText = {setPrice}
                             keyboardType="numeric"
                         />
                     </View>
                     {/* DESCRIPTION */}
-                    <View>
+                    <View style = {styles.inputGroup}>
                         <Text style = {styles.label}>Descripción</Text>
                         <TextInput
                             style = {styles.input}
-                            placeholder = "Ingrese la descripción del juego"
+                            placeholder = "Ej. Un juego de acción épico"
+                            placeholderTextColor="#7e7e7e"
                             value = {description}
                             onChangeText = {setDescription}
                         />
@@ -138,13 +146,14 @@ const AddGamesScreen = () => {
                         <Text style = {styles.label}>Emoji</Text>
                         <TextInput
                             style = {styles.input}
-                            placeholder = "Ingrese un emoji que represente el juego"
+                            placeholder = "Ej. 🗡"
+                            placeholderTextColor="#7e7e7e"
                             value = {emoji}
                             onChangeText = {setEmoji}
                         />
                     </View>
                     {/* BUTTONS */}
-                    <View style = {styles.buttonContainer}>
+                    <View>
                         {/* ADD GAME BUTTON */}
                         <TouchableOpacity
                             style = {[
@@ -174,3 +183,4 @@ const AddGamesScreen = () => {
 }
 
 export default AddGamesScreen;
+
