@@ -3,7 +3,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#d1d1d1',
+    paddingHorizontal: 10,
+    paddingVertical:0 // change -30
   },
   loaderContainer: {
     flex: 1,
@@ -12,36 +14,39 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     marginTop: 10,
-    fontSize: 14,
-    color: 'black',
+    fontSize: 16,
+    color: '#555555',
+    fontWeight: 'bold'
   },
   listContainer: {
-    padding: 10,
+    padding: 5,
   },
+  
   card: {
-    backgroundColor: '#eeeeee', 
-    borderWidth: 1,    
-    borderColor: '#cccccc',   
-    padding: 10,
-    marginBottom: 10,
-    flexDirection: 'row', 
-    alignItems: 'center',
+    backgroundColor: '#ffff', 
+    borderRadius: 20,
+    padding: 15,
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center'
+    
   },
   emojiContainer: {
-    fontSize: 30,
-    marginRight: 10,
+    fontSize: 50,
+    marginRight: 15,
   },
   infoContainer: {
     flex: 1,
   },
   title: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: 'black',
+    color: '#00000',
+    marginBottom: 5
   },
   details: {
     fontSize: 14,
-    color: 'gray',
+    color: '#555555',
   }
 });
 
